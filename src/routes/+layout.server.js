@@ -4,7 +4,5 @@ export async function load({ locals }) {
 		translations: locals?.translations,
 	};
 
-	console.log('ret:', ret);
-
 	return ret;
 }

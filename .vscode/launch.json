@@ -1,0 +1,17 @@
+{
+	"configurations": [
+		{
+			"name": "pnpm run dev",
+			"request": "launch",
+			"runtimeArgs": [
+				"run-script",
+				"dev"
+			],
+			"runtimeExecutable": "pnpm",
+			"skipFiles": [
+				"<node_internals>/**"
+			],
+			"type": "node"
+		}
+	]
+}

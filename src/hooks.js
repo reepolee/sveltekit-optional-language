@@ -11,8 +11,6 @@ export function reroute({ url }) {
 		slug = slug_breaks[1];
 	}
 
-	console.log('pathname:', pathname);
-
 	const segments = pathname.split('/');
 	const lastSegment = segments.at(-1);
 
@@ -21,9 +19,20 @@ export function reroute({ url }) {
 		pathname = segments.slice(0, -1).join('/');
 	}
 
-	if (pathname in translated_routes) {
-		let ret = translated_routes[pathname] + suffix;
-		if (slug) ret += `/~${slug}`;
+	let check_path = pathname;
+	let has_slug = null;
+
+	if (segments.length > 3) {
+		// we have a slug in subfolder
+		segments.pop();
+		check_path = segments.join('/');
+		has_slug = lastSegment;
+	}
+
+	if (check_path in translated_routes) {
+		let ret = translated_routes[check_path] + suffix;
+		// if (slug) ret += `/~${slug}`;
+		if (has_slug) ret += `/${lastSegment}`;
 		return ret;
 	}
 }

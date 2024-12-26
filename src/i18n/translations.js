@@ -23,6 +23,9 @@ export const translated_routes = {
 	'/sl/prijava': '/sl/login',
 	'/de/anmelden': '/de/login',
 
+	'/sl/novice': '/sl/news',
+	'/de/neuigkeiten': '/de/news',
+
 	'/sl/profil': '/sl/profile',
 	'/de/profil': '/de/profile',
 };
